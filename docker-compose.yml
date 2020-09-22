@@ -33,6 +33,16 @@ services:
     networks:
       - backend
 
+  postgresql:
+    image: postgres:11.8
+    volumes:
+      - ./docker/postgresql/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    networks:
+      - backend
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
